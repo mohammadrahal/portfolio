@@ -37,7 +37,7 @@ export default function Projects() {
       category: "Portfolio",
       status: "Live",
       image: "/images/mr.png",
-      liveDemo: "https://mohahammadrahal.vercel.app/",
+      liveDemo: "https://mohammadrahal.vercel.app/",
     },
     {
       title: "ACHRS",
