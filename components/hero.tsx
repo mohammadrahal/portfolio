@@ -1,5 +1,5 @@
 "use client"
-import { Mail,HeartHandshake } from "lucide-react"
+import { Mail } from "lucide-react"
 import { useState, useEffect } from "react"
 
 const CONTACT = {
@@ -70,13 +70,6 @@ export default function Hero() {
       <div
         className={`relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
       >
-        {/* Floating Badge */}
-        <div
-          className={`inline-flex items-center gap-3 px-6 py-3 bg-white/90 backdrop-blur-md rounded-full mb-8 border border-blue-200 shadow-lg transition-all duration-700 delay-200 hover:scale-105 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
-        >
-          <HeartHandshake size={18} className="text-purple-600 animate-pulse" />
-          <span className="text-sm font-semibold text-slate-700">Hello Im</span>
-        </div>
 
         {/* Main Heading - Solid Color */}
         <h1

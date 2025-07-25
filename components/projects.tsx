@@ -28,48 +28,28 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description:
-        "Fully functional e-commerce website with custom WordPress plugins, payment integration, and admin dashboard. Built for scalability and user experience.",
-      technologies: ["WordPress", "PHP", "MySQL", "JavaScript", "CSS"],
-      icon: <ShoppingCart size={32} />,
-      gradient: "from-purple-600 via-blue-600 to-indigo-600",
-      category: "WordPress",
-      status: "Live",
-      image: "/placeholder.svg?height=300&width=500",
-    },
-    {
-      title: "Perfume E-Commerce",
-      description:
-        "Modern e-commerce platform for perfume sales using MERN stack with Tailwind CSS for responsive design and smooth user experience.",
-      technologies: ["React.js", "Node.js", "MongoDB", "Tailwind CSS"],
-      icon: <ShoppingCart size={32} />,
-      gradient: "from-blue-600 via-purple-600 to-pink-600",
-      category: "MERN Stack",
-      status: "Featured",
-      image: "/placeholder.svg?height=300&width=500",
-    },
-    {
-      title: "Psychology Platform",
-      description:
-        "Professional psychology consultation platform with appointment booking, user profiles, and secure communication features.",
-      technologies: ["React.js", "Node.js", "MongoDB", "Tailwind CSS"],
-      icon: <Code size={32} />,
-      gradient: "from-green-600 via-teal-600 to-blue-600",
-      category: "Healthcare",
-      status: "Live",
-      image: "/placeholder.svg?height=300&width=500",
-    },
-    {
       title: "Portfolio Website",
       description:
         "Personal portfolio website showcasing skills and projects, built with React.js and modern design principles.",
       technologies: ["React.js", "Next.js", "Tailwind CSS", "TypeScript"],
+      icon: <ShoppingCart size={32} />,
+      gradient: "from-purple-600 via-blue-600 to-indigo-600",
+      category: "Portfolio",
+      status: "Live",
+      image: "/images/mr.png",
+      liveDemo: "https://mohahammadrahal.vercel.app/",
+    },
+    {
+      title: "ACHRS",
+      description:
+        "Redesigned the ACHRS website using WordPress with a focus on user experience, improved navigation, and a modern design aligned with the center’s human rights mission.",
+      technologies: ["WordPress", "Elementor"],
       icon: <Code size={32} />,
       gradient: "from-orange-600 via-red-600 to-pink-600",
       category: "Portfolio",
       status: "Current",
-      image: "/placeholder.svg?height=300&width=500",
+      image: "/images/ACHRS.png",
+      liveDemo: "",
     },
   ]
 
@@ -109,18 +89,18 @@ export default function Projects() {
             {projects.map((project, index) => (
               <Card
                 key={project.title}
-                className={`group relative bg-white/80 backdrop-blur-md border border-white/20 shadow-xl rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] ${isVisible ? "animate-fade-in-up" : ""}`}
+                className={`group relative bg-white/80 backdrop-blur-md border border-white/20 shadow-xl rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] ${isVisible ? "animate-fade-in-up" : ""} h-[540px] flex flex-col`}
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onMouseEnter={() => setHoveredProject(index)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
                 {/* Project Image/Header */}
                 <CardHeader className="relative p-0 h-48 overflow-hidden">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-90`} />
+                  <div className={`absolute inset-0 `} />
                   <img
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
-                    className="w-full h-full object-cover opacity-20"
+                    className="w-full h-full object-cover"
                   />
 
                   {/* Status Badge */}
@@ -147,16 +127,9 @@ export default function Projects() {
                       {project.category}
                     </span>
                   </div>
-
-                  {/* Project Icon */}
-                  <div className="absolute bottom-4 left-4">
-                    <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center text-white shadow-lg">
-                      {project.icon}
-                    </div>
-                  </div>
                 </CardHeader>
 
-                <CardContent className="p-8">
+                <CardContent className="p-8 flex-1 flex flex-col">
                   <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                     {project.title}
                   </h3>
@@ -183,14 +156,26 @@ export default function Projects() {
 
                 <CardFooter className="p-8 pt-0">
                   <div className="flex gap-3 w-full">
-                    <button className="flex-1 px-4 py-3 bg-slate-900 text-white rounded-xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center gap-2 hover:bg-slate-800">
+                    <button className="flex-1 px-4 py-3 bg-slate-900 text-white rounded-xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center gap-2 hover:bg-slate-800 text-xs sm:text-sm md:text-base">
                       <Github size={16} />
                       Code
                     </button>
-                    <button className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center gap-2 hover:bg-blue-700">
-                      <Eye size={16} />
-                      Live Demo
-                    </button>
+                    {project.liveDemo ? (
+                      <a
+                        href={project.liveDemo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-xl font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center gap-2 hover:bg-blue-700 text-center text-xs sm:text-sm md:text-base"
+                      >
+                        <Eye size={16} />
+                        Live
+                      </a>
+                    ) : (
+                      <button className="flex-1 px-4 py-3 bg-blue-300 text-white rounded-xl font-bold flex items-center justify-center gap-2 cursor-not-allowed opacity-60 text-xs sm:text-sm md:text-base" disabled>
+                        <Eye size={16} />
+                        Live
+                      </button>
+                    )}
                   </div>
                 </CardFooter>
 
