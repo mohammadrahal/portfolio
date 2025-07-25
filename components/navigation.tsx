@@ -173,9 +173,9 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/25">
-              <span className="text-white font-black text-xl">M</span>
+          <a href="#" className="flex items-center space-x-3 group" aria-label="Go to top">
+            <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/25 group-hover:scale-105 transition-transform duration-200">
+              <span className="text-white font-black text-xl">MR</span>
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-black bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
@@ -183,7 +183,7 @@ export default function Navigation() {
               </span>
               <span className="text-xs text-slate-500 font-medium">Frontend Developer</span>
             </div>
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <DesktopNav navItems={NAV_ITEMS} activeSection={activeSection} onNavClick={handleNavClick} />
